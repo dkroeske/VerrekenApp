@@ -1,0 +1,53 @@
+<form [formGroup]="deelnemerForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <input
+      type="text"
+      id="naam"
+      placeholder="naam"
+      formControlName="naam"
+      class="form-control">
+
+    <input
+      type="text"
+      id="inleg"
+      placeholder="inleg"
+      formControlName="inleg"
+      class="form-control">
+  </div>
+
+  <button
+    [disabled]="!deelnemerForm.valid"
+    class="btn btn-primary center-block"
+    type="submit">
+    Add
+  </button>
+
+  <button
+    [disabled]="deelnemers.length===0"
+    (click)="onClearDeelnemers()">
+    Opnieuw
+  </button>
+
+</form>
+
+<!-- Display deelnemers -->
+<div *ngIf="deelnemers">
+  <ul>
+    <li *ngFor="let deelnemer of deelnemers">
+      {{deelnemer.name}} heeft {{deelnemer.inleg | currency:'EUR'}} Euro betaald
+    </li>
+  </ul>
+</div>
+
+<!--Display kasboek-->
+<div *ngIf="kasboek">
+  Totaal is verbrast voor {{kasboek.totaal | currency:'EUR'}} Euro
+  <ul>
+    <li *ngFor="let item of kasboek.items">
+      {{item.van}} betaald {{item.naar}} {{item.bedrag | currency:'EUR'}} Euro
+    </li>
+  </ul>
+</div>
+
+
