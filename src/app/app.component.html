@@ -1,68 +1,75 @@
-<mat-toolbar color="accent">
-  <span>Wie betaald Wie</span>
-  <span class="toolbar"></span>
-</mat-toolbar>
+<h1>De verrekenapp</h1>
 
-<form [formGroup]="deelnemerForm" (ngSubmit)="onSubmit()">
+<router-outlet></router-outlet>
 
-  <div class="form-group">
-    <mat-form-field class="full-width">
-      <input matInput
-        placeholder="Naam"
-        formControlName="naam">
-    </mat-form-field>
-    <mat-error>
-      <span *ngIf="!deelnemerForm.get('naam').valid && deelnemerForm.get('naam').touched">Oeps.</span>
-    </mat-error>
+<!--<app-calculator></app-calculator>-->
+<!--<app-overview></app-overview>-->
 
-    <mat-form-field class="full-width">
-      <input matInput
-        placeholder="Inleg"
-        formControlName="inleg">
-    </mat-form-field>
-    <mat-error>
-      <span *ngIf="!deelnemerForm.get('inleg').valid && deelnemerForm.get('inleg').touched">Bijvoorbeeld '10.35'</span>
-    </mat-error>
-  </div>
+<!--<mat-toolbar color="accent">-->
+  <!--<span>Wie betaald Wie</span>-->
+  <!--<span class="toolbar"></span>-->
+<!--</mat-toolbar>-->
 
-  <button mat-button
-    [disabled]="!deelnemerForm.valid"
-    class="btn btn-primary center-block"
-    type="submit">
-    Add
-  </button>
+<!--<form [formGroup]="deelnemerForm" (ngSubmit)="onSubmit()">-->
 
-  <button mat-button
-    [disabled]="deelnemers.length===0"
-    (click)="onClearDeelnemers()">
-    Opnieuw
-  </button>
+  <!--<div class="form-group">-->
+    <!--<mat-form-field class="full-width">-->
+      <!--<input matInput-->
+        <!--placeholder="Naam"-->
+        <!--formControlName="naam">-->
+    <!--</mat-form-field>-->
+    <!--<mat-error>-->
+      <!--<span *ngIf="!deelnemerForm.get('naam').valid && deelnemerForm.get('naam').touched">Oeps.</span>-->
+    <!--</mat-error>-->
 
-</form>
+    <!--<mat-form-field class="full-width">-->
+      <!--<input matInput-->
+        <!--placeholder="Inleg"-->
+        <!--formControlName="inleg">-->
+    <!--</mat-form-field>-->
+    <!--<mat-error>-->
+      <!--<span *ngIf="!deelnemerForm.get('inleg').valid && deelnemerForm.get('inleg').touched">Bijvoorbeeld '10.35'</span>-->
+    <!--</mat-error>-->
+  <!--</div>-->
 
-<!-- Display deelnemers -->
-<div *ngIf="deelnemers.length > 0">
-  <h2>Wie heeft wat betaald</h2>
-  <ul>
-    <li *ngFor="let deelnemer of deelnemers">
-      {{deelnemer.name}} heeft {{deelnemer.inleg | currency:'EUR'}} betaald
-    </li>
-  </ul>
-</div>
+  <!--<button mat-button-->
+    <!--[disabled]="!deelnemerForm.valid"-->
+    <!--class="btn btn-primary center-block"-->
+    <!--type="submit">-->
+    <!--Add-->
+  <!--</button>-->
 
-<div *ngIf="kasboek">
-  Totaal is verbrast voor {{kasboek.totaal | currency:'EUR'}}
-</div>
+  <!--<button mat-button-->
+    <!--[disabled]="deelnemers.length===0"-->
+    <!--(click)="onClearDeelnemers()">-->
+    <!--Opnieuw-->
+  <!--</button>-->
 
-<!--Display kasboek-->
-<div *ngIf="kasboek">
-  <h2>De betaalverzoekjes</h2>
+<!--</form>-->
 
-  <ul>
-    <li *ngFor="let item of kasboek.items">
-      {{item.van}} betaald {{item.naar}} {{item.bedrag | currency:'EUR'}}
-    </li>
-  </ul>
-</div>
+<!--&lt;!&ndash; Display deelnemers &ndash;&gt;-->
+<!--<div *ngIf="deelnemers.length > 0">-->
+  <!--<h2>Wie heeft wat betaald</h2>-->
+  <!--<ul>-->
+    <!--<li *ngFor="let deelnemer of deelnemers">-->
+      <!--{{deelnemer.name}} heeft {{deelnemer.inleg | currency:'EUR'}} betaald-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</div>-->
+
+<!--<div *ngIf="kasboek">-->
+  <!--Totaal is verbrast voor {{kasboek.totaal | currency:'EUR'}}-->
+<!--</div>-->
+
+<!--&lt;!&ndash;Display kasboek&ndash;&gt;-->
+<!--<div *ngIf="kasboek">-->
+  <!--<h2>De betaalverzoekjes</h2>-->
+
+  <!--<ul>-->
+    <!--<li *ngFor="let item of kasboek.items">-->
+      <!--{{item.van}} betaald {{item.naar}} {{item.bedrag | currency:'EUR'}}-->
+    <!--</li>-->
+  <!--</ul>-->
+<!--</div>-->
 
 

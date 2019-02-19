@@ -1,0 +1,12 @@
+<p>
+  overview works!
+</p>
+
+<!-- Display deelnemers -->
+<div *ngIf="kasboeken.length > 0">
+  <ul>
+    <li *ngFor="let kasboek of kasboeken">
+      {{kasboek.event}}
+    </li>
+  </ul>
+</div>
